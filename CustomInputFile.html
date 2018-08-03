@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+<!--mettre l'input[type=file] en display none et customiser le label-->
+    <style>
+
+        .adminForm {
+            padding: 0 12vw 0 12vw;
+            color: #e9ac52;
+            font-size: 1.5rem;
+            text-shadow: -1px 0 #302f2e, 0 1px #302f2e, 1px 0 #302f2e, 0 -1px #302f2e;
+        }
+
+        .adminForm input[type=file] {
+            display: none;
+        }
+
+        .adminForm label div {
+            padding:10px;
+        }
+
+        .adminForm .browser {
+            background-color: #ac2b10;
+            height: 54px;
+            width: 150px;
+            margin-top: -54px;
+            border-radius: 3px 0 0 3px;
+            text-align: center;
+        }
+
+        .adminForm .choiceBox {
+            width: 100%;
+            height: 54px;
+            padding-left: 160px;
+            border-radius: 3px;
+            background-color: rgba(10, 10, 10, 0.91);
+        }
+
+        .adminForm label:hover {
+            cursor: pointer;
+        }
+
+        .adminForm .browser:hover {
+            color: #e99211;
+        }
+
+        .adminForm input[type=submit] {
+            color: #e9ac52;
+            text-shadow: -1px 0 #302f2e, 0 1px #302f2e, 1px 0 #302f2e, 0 -1px #302f2e;
+            border: solid 1px #e9ac52;
+            padding: 9px 30px 5px 30px;
+            margin-top: 30px;
+            border-radius: 27px;
+            background: none;
+        }
+
+        .adminForm input[type=submit]:hover {
+            color: #e99211;
+            border-color: #e99211;
+            text-decoration: none;
+        }
+    </style>
+
+
+    <title>Custom Input File</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <form action="" method="POST" class="row adminForm" enctype="multipart/form-data">
+
+        <!--Lier le label à son input grace au for et au name-->
+        <label for="uploadFile" class="col-12">
+            <div>Upload your file</div>
+            <div class="choiceBox">No file selected</div>
+            <div class="browser">Browse</div>
+        </label>
+        <input type="file" name="uploadFile" id="uploadFile" class="col-12">
+        <div class="col-12 flexCentered"><input type="submit" value="Upload"></div>
+    </form>
+</div>
+
+<!--petit script JQuery pour recuperer le nom du fichier selectionner dans l'input file-->
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+<script>
+    $('input[type=file]').change(function(e){
+        var $in=$('input[type=file]')[0].files[0].name;
+        console.log($in);
+        $('.choiceBox').text($in);
+    });
+</script>
+
+
+</body>
+</html>
