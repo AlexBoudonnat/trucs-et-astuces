@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Menu déroulant en css</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="icon" href="images/devil.png">
+
+    <style>
+    .icon-chevron-down img,
+    .icon-chevron-right img {
+        width: 30px;
+        padding-left: 50px;
+    }
+
+    .icon-chevron-down,
+    input[type=checkbox],
+    input[type=checkbox] ~ div {
+          display: none;
+      }
+
+    input[type=checkbox]:checked ~ div {
+        display: block;
+    }
+
+    input[type=checkbox]:checked ~ label .icon-chevron-down{
+        display: inline;
+    }
+
+    input[type=checkbox]:checked ~ label .icon-chevron-right{
+        display: none;
+    }
+    </style>
+
+
+</head>
+<body>
+<div class="col d-md-none menu-entry">
+    <input type="checkbox" id="cBox1">
+    <label for="cBox1" class="popMenu">
+        <span>COORDONNÉES</span>
+        <span class="icon-chevron-right"><img src="images/right-arrow.png" alt="right-arrow"></span>
+        <span class="icon-chevron-down"><img src="images/down-arrow.png" alt="down-arrow"></span>
+    </label>
+    <div class="col">
+        <div class="row">
+            <div class="col-2 icon-map-marker footerIcons"></div>
+            <div class="col-10" id="adress">
+                <p>405 - 690 rue des marvays <br>74300 THYEZ</p>
+            </div>
+            <div class="col-2 icon-telephone footerIcons"></div>
+            <div class="col-10 footerInfos"><p>+33 (0)4 50 98 29 10</p></div>
+            <div class="col-2 icon-shredder footerIcons"></div>
+            <div class="col-10 footerInfos"><p>+33 (0)4 50 98 65 44</p></div>
+            <div class="col-2 icon-envelope footerIcons"></div>
+            <div class="col-10 footerInfos">
+                <p>secretariat@ferrarini-decolletage.com</p>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
