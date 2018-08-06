@@ -1,0 +1,8 @@
+////A faire afin de securiser l'accès à un dossier quand on utiliser un serveur Apache
+
+// AuthName "Page d'administration protégée, veuillez vous identifier"
+// AuthType Basic
+
+//// Mettre le chemin absolut du htpasswd
+// AuthUserFile "/home/dossier/www/votre-repertoire/admin/.htpasswd"
+// Require valid-user
