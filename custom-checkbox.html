@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Custom checkbox</title>
+    <style>
+        h1 {
+            color: darkred;
+            text-transform: uppercase;
+        }
+        input[type=checkbox] {
+            display: none;
+        }
+
+        .rgpdForm span {
+            font-size: 0.9em;
+            cursor: pointer;
+            padding-left: 30px;
+        }
+
+        .rgpdForm span::before {
+             content: '';
+             position: absolute;
+             left: 10px;
+             width: 20px;
+             height: 20px;
+             box-shadow: 3px 3px 5px 0.2px rgba(104, 103, 103, 0.4);
+             background: lightyellow;
+        }
+
+        .rgpdForm span::after {
+             content: '';
+             position: absolute;
+             left: 16px;
+             width: 5px;
+             height: 12px;
+             border: solid darkcyan;
+             border-width: 0 3px 3px 0;
+         }
+
+        .policyLink {
+            color: darkcyan;
+        }
+
+        input[type='checkbox']:not(:checked) + span::after {
+            opacity: 0;
+            transform: scale(0);
+        }
+
+        input[type='checkbox']:checked + span::after {
+             opacity: 1;
+             transform: scale(1) rotate(45deg);
+        }
+    </style>
+</head>
+<body>
+    <h1>Custom Checkbox</h1>
+    <div class="col-12 rgpdForm">
+        <label for="accept">
+            <input type="checkbox" name="is_legal" value="1" required="required" id="accept">
+            <span>* En cochant cette case, je consens au traitement de mes données personnelles afin de me répondre de la manière la plus pertinente et ce, conformément à la politique de confidentialité dont j’ai pris connaissance et que j’accepte sans réserve.
+                <a class="policyLink" href="/" target="_blank">Lire notre politique de confidentialité</a>
+            </span>
+        </label>
+    </div>
+</body>
+</html>
